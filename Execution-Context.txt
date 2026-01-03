@@ -1,0 +1,87 @@
+1.  JavaScript Execution Context
+
+    1. Everything in JavaScript happens inside the execution context.
+    2. Every browser has its own JavaScript Engine.
+    3. Execution context in the JavaScript engine is a place where whole JS code is executed.
+    4. Execution context is like a container.
+    5. This execution context has : Memory component and Code component.
+
+2.  Memory Component
+
+    1. Memeory Component is the place where variables and functions are stored in key value pair.
+    2. for example a:10 , fn:{}
+    3. Memeory component is also called as variable enviornment
+
+3.  Code Component
+
+    1. Code component is the place where the code is executed.
+    2. Code component is also called as Thread of Execution.
+    3. Here the code is executed 1 line at a time.
+
+4.  JavaScript is Synchrounous Single Threaded Language.
+    1️⃣ Single-threaded
+    Single-threaded means JavaScript can execute only one task at a time on its main thread.
+    JavaScript has a single call stack, so it processes one operation before moving to another.
+    JavaScript executes 1 command at a time.
+
+    2️⃣ Synchronous
+    Synchronous means JavaScript executes code line by line, in specific order.
+    Each statement or command must finish executing before the next statement starts.
+
+    Combined meaning (important)
+    Because JavaScript is single-threaded and synchronous, it executes one operation at a time and moves to the next operation only after the current one completes.
+
+5.  Whenever we run or executes a JS code, execution context is created.
+
+6.  Example of working of execution context:
+
+                 var n = 2;
+                 function square (num){
+                 var ans = num * num;
+                 return ans;
+                 }
+                 var square2 = square(n);
+                 var square4 = square(4);
+
+                 OUTPUT :
+                    4
+                    16
+
+        1. when the above code is executed or run, the global execution context is created behind the scenes.
+        2. The execution context has memory component and code component
+        3. The execution context is created into 2 phases : 1. Memory Creation Phase and 2. Code Execution phase
+
+        4. MEMORY CREATION PHASE
+
+           1. In this phase JS allocates the memory to all variables and functions.
+           2. As soon as JS starts to run , It skims through the whole programme and starts to allocate the memory to variables and functions
+           3. variables and functions are stored in the key:value pair.
+           4. so when JS Skims through the above code, and as soon as the JS reads the
+                1. First Line : var n = 2; It allocates memory for variable n
+                        as n : undefined
+                        SO IN THE FIRST PHASE IT STORES SPECIAL VALUE CALLED UNDEFINED FOR ALL THE VARIABLES
+                2. When the JS encounters the second line and sees its a function :
+
+                function square (num){
+                 var ans = num * num;
+                 return ans;
+                 }
+
+                 it stores the whole function as square:(num){var ans = num * num;return ans;}
+            5. Now the pointer is at line 6 i.e var square2 = square(n);
+                1. so its a variable it stores as square : undefined
+            6. Now the pointer is at line 7 i.e var square4 = square(4);
+                1. so its a variable and it stores it as square4 : undefined
+            7. So in the first phase i.e memory creation phase, JS Engine skims through the whole program and allocates memory to variables and functions.
+
+        5. CODE EXECUTION PHASE
+
+            1. The JS engine runs through the whole program from the line 1 and starts executing the code line by line.
+            2. The line 1 : var n = 2.
+                    Now the value 2 is placed in the place of undefined. so now the value 2 is assigned.
+                    now it becomes n : 2
+
+    An Execution Context is an internal environment where JavaScript:
+    Keeps track of variables
+    Handles function execution
+    Manages the call stack
