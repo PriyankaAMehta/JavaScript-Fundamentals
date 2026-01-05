@@ -76,10 +76,45 @@
 
         5. CODE EXECUTION PHASE
 
-            1. The JS engine runs through the whole program from the line 1 and starts executing the code line by line.
+            1. The JS engine once again runs through the whole program from the line 1 and starts executing the code line by line.
             2. The line 1 : var n = 2.
-                    Now the value 2 is placed in the place of undefined. so now the value 2 is assigned.
-                    now it becomes n : 2
+                    In the memory creation phase n was asssigned undefined. n:undefined
+                    Now in the code execution phase the value 2 is placed in the place of undefined. so now the value 2 is assigned.now it becomes n : 2.
+            3. At line 2, it sees a function and there is nothing to execute here, so the pointer moves to line 6.
+            4. At line 6 i.e var square2 = square(n), here is a function invokation.
+                    1. Whenever there is function invocation, a new execution context is created.
+                    2. Functions are like small programmes.
+                    3. This new execution context will have 2 phases 1. memeory allocation and 2. code execution phase.
+                    now we are executing var square2 = square(n) which is invoking the function (num){var ans = num * num;return ans;}. so now the mini program is (num){var ans = num * num;return ans;}
+                    4. In the memeory creation phase :
+                        1. In the memory creation phase, the memeory is allocated to all variables and functions. variables also include the parameters i.e (num).
+                        2. num : undefined
+                           ans : undefined
+                    5. In the code execution phase, the code is executed line by line.
+                        1. The value of n in the function invokation , var square2 = square(n); where n : 2 which we have already assigned in the main code execution is passed to num.
+                        2. so now num : 2
+                        3. when line 2 from the mini program is encountered, var ans = num * num;
+                            now it will calulate num * num i.e 2 * 2 = 4 and put it in the place of ans.
+                            now ans: undefined is replaced with 4.
+                            now when the pointer comes to next line i.e return ans; return tells that the program is now terminated. and return to the main control where function was invoked.
+                        4. now the value of ans which is 4 is passed to square2 : undefined to square2:4
+                        5. and since the program is completed , the execution context for this will be deleted.
+                    6. Now the poniter moves to line square4 = square(4). This is again a function invokation and a new exxecution context is created with memory allocation phase and code executin phase.
+                            1. num : undefined and ans : undefined is alloacated im the memeory execution phase.
+                            2. In the code execution phase 4, is passed to  n and ans = num * num now becomes ans: 16.
+                            3. the programm is executed and the execution context is deleted and now the square4: undeinede is replaced with square:16.
+                    7. now the line number 7 is also executed, now the whole global execution contex is deleted.
+            6.  Call Stack
+                    The Call Stack is a special data structure used by JavaScript to manage execution contexts.
+                    It works on the rule LIFO (Last In, First Out).
+                    How the Call Stack Works
+                    When a JavaScript program starts, the Global Execution Context is created.
+                    This Global Execution Context is placed at the bottom of the Call Stack.
+                    Whenever a function is invoked, JavaScript creates a new execution context for that function.
+                    This new function execution context is pushed on top of the Call Stack.
+                    When the function finishes executing and returns a value, its execution context is removed (popped) from the Call Stack.
+                    Control then goes back to the execution context that is below it in the stack.
+                    After the entire program finishes, the Global Execution Context is also removed, and the Call Stack becomes empty.
 
     An Execution Context is an internal environment where JavaScript:
     Keeps track of variables
