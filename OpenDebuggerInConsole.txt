@@ -1,0 +1,56 @@
+1.  How to Run the Debugger in Chrome DevTools (Sources Tab)
+
+    1. 1️⃣ Open Chrome DevTools
+       Open your webpage in Google Chrome
+       Right-click anywhere on the page → Inspect
+
+
+        Or use shortcuts:
+        Windows / Linux: Ctrl + Shift + I
+        Mac: Cmd + Option + I
+
+    2.  2️⃣ Go to the Sources Tab
+        In DevTools, click Sources
+        This tab shows all loaded files (HTML, CSS, JS)
+
+    3.      3️⃣ Click on Your JavaScript File
+
+        In the left panel:
+        Expand Page → your-file.js
+        Or Snippets if you’re using a snippet
+        Click the JavaScript file you want to debug
+
+    4.          4️⃣ Set a Breakpoint (Manual Way)
+            Click on the line number where you want execution to pause
+            A blue marker appears → breakpoint is set
+            Example:
+            console.log(x); // click line number here
+
+    5.          5️⃣ Reload or Trigger the Code
+            Reload the page (Ctrl + R / Cmd + R)
+            Or trigger the event (button click, API call, etc.)
+            Execution will pause at the breakpoint
+
+    6.             ▶️ Running the Debugger Controls
+                Once paused, use the toolbar on the right:
+
+                Button	Action
+
+                        ▶️ Resume	Continue execution
+                        ⤼ Step over	Execute next line
+                        ⤽ Step into	Go inside a function
+                        ⤴ Step out	Exit current function
+                        ⏸ Pause	Pause execution
+
+    7.           6️⃣ Inspect Variables on the right
+                While paused:
+                Scope panel → view local, global, and closure variables
+                Watch panel → add expressions to monitor
+                Console → type variable names and expressions live
+
+    8.              7️⃣ Using the debugger Keyword (Code Way)
+                You can pause execution directly from code:
+                var x = 10;
+                debugger;
+                console.log(x);
+                When DevTools is open, execution automatically pauses at debugger.
