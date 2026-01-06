@@ -144,3 +144,14 @@
                 TypeError: getName is not a function
 
         4. Why ? since arrow functions are treated as variables, it allocates getName:undefined in the meemory creation phase.
+
+10. Writing the above function as :
+
+            var getName2 = function () {
+            return console.log("JavaScript Series");
+            };
+
+            OUTPUT :
+            TypeError: getName2 is not a function.
+
+            Why ? : because this is also treated as variable.
