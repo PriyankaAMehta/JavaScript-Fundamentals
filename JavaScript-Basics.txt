@@ -1,11 +1,107 @@
-1. Where Do you write the JS code?
+1.  Where Do you write the JS code?
 
-   1. In HTML, JavaScript code is inserted between <script> and </script> tags.
-   2. Old JavaScript examples may use a type attribute: <script type="text/javascript">.
-      The type attribute is not required. JavaScript is the default scripting language in HTML.
-   3. you can place any number of scripts in an HTML document.
-      Scripts can be placed in the <body>, or in the <head> section of an HTML page, or in both.
+    1. In HTML, JavaScript code is inserted between <script> and </script> tags.
+    2. Old JavaScript examples may use a type attribute: <script type="text/javascript">.
+       The type attribute is not required. JavaScript is the default scripting language in HTML.
+    3. you can place any number of scripts in an HTML document.
+       Scripts can be placed in the <body>, or in the <head> section of an HTML page, or in both.
 
-2. JS Comments
-   // - single line comments
-   /_.._/ - multi line comments
+2.  JS Comments
+    // - single line comments
+    /_...._/ - multi line comments
+
+3.  Variables in JS
+
+    1.  JavaScript variables are containers for data.
+
+    2.  JavaScript variables can be declared in following ways :
+
+            1. Modern JavaScript
+                    Using let
+                    Using const
+
+            2. Older JavaScript
+            Using var (Not Recommended)
+            Automatically (Not Recommended)
+
+    3.  JavaScript Identifiers :
+
+                1. Variables are identified with unique names called identifiers.
+
+                2. Names can be short like x, y, z.
+
+                3. Names can be descriptive age, sum, carName.
+
+                4. The rules for constructing names (identifiers) are:
+
+                        1. Names can contain letters, digits, underscores, and dollar signs.
+                        2. Names must begin with a letter, a $ sign or an underscore (_).
+                        3. Names are case sensitive (X is different from x).
+                        4. Reserved words (JavaScript keywords) cannot be used as names.
+
+    4.  let keyword :
+
+            1. The let keyword was introduced in ES6 (2015)
+
+            2. Variables declared with let have Block Scope
+
+            3. Variables declared with let must be Declared before use
+
+            4. Variables declared with let cannot be Redeclared in the same scope
+
+    5.  const keyword :
+
+            1. The const keyword was introduced in ES6 (2015)
+
+            2. Variables defined with const cannot be Redeclared
+
+            3. Variables defined with const cannot be Reassigned
+
+            4. Variables defined with const have Block Scope
+
+4.  JavaScript has 8 Datatypes :
+
+        1. String: 	A text of characters enclosed in quotes
+
+        2. Number:	A number representing a mathematical value
+
+        3. Bigint:	A number representing a large integer
+
+        4. Boolean:	A data type representing true or false
+
+        5. Object:	A collection of key-value pairs of data
+
+        6. Undefined:	A primitive variable with no assigned value
+
+        7. Null:	A primitive value representing object absence
+
+        8. Symbol:	A unique and primitive identifier
+
+5.  Functions
+
+    1.  What are functions in JS
+        Functions in JS are like minii programs. Functions are reusable block of code designed to perform a particular task.
+
+    2.  JavaScript Function Syntax
+
+                    function name( p1, p2, ... ) {
+                    // code to be executed
+                    }
+
+                    1. The function name follows the naming rules for variables.
+
+                    2. Optional parameters are listed inside parentheses: ( p1, p2, ... )
+
+                    3. Code to be executed is listed inside curly brackets: { }
+
+    3.  Function Invocation ()
+
+                    1.The code inside the function will execute when "something" invokes (calls) the function:
+
+                    2. When it is invoked (called) from JavaScript code
+
+                    3. When an event occurs (a user clicks a button)
+
+                    4. Automatically (self invoked)
+
+                    5. The () operator invokes a the function.
