@@ -4,6 +4,9 @@
     Hoisting is a JavaScript behavior where declarations are processed before code execution,
     making them available earlier than where they appear in the source code.
 
+    In most of the programming langaue the below programm will be an error because we cannot access variables and functions
+    before initialization.
+
 3.  Programm with example of hoisting :
 
             getName();
@@ -16,7 +19,7 @@
 
             /_ OUTPUT
             JavaScript Series
-            undefine
+            undefined
             _/
 
 4.  Why is the output like this ?
@@ -93,6 +96,25 @@
                            var x; // hoisted → undefined
                            x = 7; // executed later
 
-
                 The program does not terminate early—it runs completely.
                 The assignment happens, but after the output is already produced.
+
+5.  Programme where x is not defined
+    getName();
+    console.log(x);
+
+        function getName() {
+        return console.log("JavaScript Series");
+        }
+
+    1. OUTPUT
+       JavaScript Series
+       ReferenceError: x is not defined
+
+6.  So undefined ≠ not defined
+
+7.  undefined
+    The variable exists but has not been assigned a value
+
+8.  not defined
+    The variable does not exist in memory
