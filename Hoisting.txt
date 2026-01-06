@@ -1,8 +1,13 @@
 1.  How to run the file ? : node Hoisting.js
 
 2.  What is the meaning of hoisting?
-    Hoisting is a JavaScript behavior where declarations are processed before code execution,
-    making them available earlier than where they appear in the source code.
+    Hoisting is a JavaScript behavior where we can access variables and functions even before initilization.
+
+    Hoisting is JavaScript’s behavior of allocating memory for variable and function declarations before code execution begins.
+    During the memory creation phase of the execution context:
+    Function declarations are fully hoisted, meaning their entire definition is stored in memory.
+    Variables declared with var are hoisted and initialized with undefined.
+    Variables declared with let and const are hoisted but are not initialized, which places them in the Temporal Dead Zone (TDZ) until their declaration is evaluated.
 
     In most of the programming langaue the below programm will be an error because we cannot access variables and functions
     before initialization.
@@ -118,3 +123,24 @@
 
 8.  not defined
     The variable does not exist in memory
+
+9.  What is the and getName() is a arrow function instead of normal function.
+
+        1. Program :
+                    getName();
+                    console.log(getName);
+                    console.log(x);
+
+                    var x = 7;
+
+                    var getName = () => {
+                    return console.log("JavaScript Series");
+
+                     };
+
+        2. The arrow function is treated as the variable i.e now the getName is treated as variable.
+
+        3. OUTPUT OF ABOVE :
+                TypeError: getName is not a function
+
+        4. Why ? since arrow functions are treated as variables, it allocates getName:undefined in the meemory creation phase.
