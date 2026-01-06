@@ -1,15 +1,8 @@
 //How to run the file ? : node Hoisting.js
-// Simple programme
+getName();
+console.log(x);
 var x = 7;
 
 function getName() {
   return console.log("JavaScript Series");
 }
-
-getName();
-console.log(x);
-
-/* OUTPUT
-JavaScript
-7 
-*/

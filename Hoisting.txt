@@ -1,0 +1,98 @@
+1.  How to run the file ? : node Hoisting.js
+
+2.  What is the meaning of hoisting?
+    Hoisting is a JavaScript behavior where declarations are processed before code execution,
+    making them available earlier than where they appear in the source code.
+
+3.  Programm with example of hoisting :
+
+            getName();
+            console.log(x);
+            var x = 7;
+
+            function getName() {
+            return console.log("JavaScript Series");
+            }
+
+            /_ OUTPUT
+            JavaScript Series
+            undefine
+            _/
+
+4.  Why is the output like this ?
+
+    1.  Because as explained in the Execution-Context.txt, – During the Memory Creation Phase (also called the Hoisting phase), the JavaScript engine scans the program and allocates memory.
+
+    2.  Function declarations are fully hoisted, so the entire getName function is stored in memory.
+
+    3.  Variables declared with var are hoisted as well, but only their declarations are hoisted—not their assignments. Therefore, x is initialized with the value undefined.
+
+    4.  During the Execution Phase:
+
+        1.  getName() is executed first, so "JavaScript Series" is printed to the console.
+            console.log(x) is executed next. At this moment, x exists in memory but still holds the value undefined because the assignment has not yet occurred.
+
+        2.  The statement var x = 7; is executed afterward, assigning 7 to x, but this happens after the console.log(x) call, so it does not affect the output.
+            This explains why the output is:
+            JavaScript Series
+            undefined
+
+        3.  More details : Why is the output like this?
+            JavaScript code is executed in two phases inside an Execution Context:
+
+            1️⃣ Memory Creation Phase (Hoisting Phase)
+            Before any line of code is executed, the JavaScript engine scans the entire program and allocates memory.
+            What happens in this phase?
+            Function declarations
+            The full function definition is stored in memory.
+
+            function getName() {
+            console.log("JavaScript Series");
+            }
+
+            Variables declared with var
+            Only the variable name is stored, and it is initialized with undefined.
+            var x; // x = undefined
+
+            At the end of this phase, memory looks conceptually like this:
+            getName → function() { console.log("JavaScript Series"); }
+            x → undefined
+            ⚠️ No code is executed yet. Only memory allocation happens.
+
+            2️⃣ Execution Phase
+            Now the JavaScript engine executes the code line by line, from top to bottom.
+            Step-by-step execution:
+
+            1.  getName();
+                The function getName is already available in memory.
+                It gets executed immediately.
+
+                Output:
+                JavaScript Series
+
+            2.  console.log(x);
+                The engine looks up x in memory.
+
+                x exists, but its value is still undefined because the assignment has not been executed yet.
+
+                Output:
+                undefined
+
+            3.  var x = 7;
+                This line executes after console.log(x).
+
+                The value 7 is assigned to x.
+
+                There is no console.log after this, so nothing is printed.
+
+                ❗ Important Clarifications
+                x is not 7 at the time it is logged.
+
+                var x = 7; is split internally into:
+
+                           var x; // hoisted → undefined
+                           x = 7; // executed later
+
+
+                The program does not terminate early—it runs completely.
+                The assignment happens, but after the output is already produced.
