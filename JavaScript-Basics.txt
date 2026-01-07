@@ -38,6 +38,7 @@
                         2. Names must begin with a letter, a $ sign or an underscore (_).
                         3. Names are case sensitive (X is different from x).
                         4. Reserved words (JavaScript keywords) cannot be used as names.
+                        5. Numbers are not allowed as the first character in names.
 
     4.  let keyword :
 
@@ -77,7 +78,15 @@
 
         8. Symbol:	A unique and primitive identifier
 
-5.  Functions
+5.  JS is loosely typed language. for example if a variable is holding a string in it when it was created, later in the program it can hold number or any other data type. But when a strict typed language like TS , C when a variable is holding a string in it when it was created, later in the program it cannot hold number or any other data type.
+
+6.  typeof Operator : 1. You can use the JavaScript typeof operator to find the type of a JavaScript variable.
+
+        2.The typeof operator returns the type of a variable or an expression:
+
+7.  All JavaScript comparison operators (like ==, !=, <, >) return true or false from the comparison.
+
+8.  Functions
 
     1.  What are functions in JS
         Functions in JS are like minii programs. Functions are reusable block of code designed to perform a particular task.

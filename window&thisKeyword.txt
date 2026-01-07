@@ -1,0 +1,49 @@
+1.  Which is the shortest program in JS ?
+    Empty file is the shortest program in JS.
+
+2.  Why is an empty file considered the shortest JavaScript program?
+
+    1.  Even when a JavaScript file is completely empty, the JavaScript engine still performs the following steps:
+        Creation of the Global Execution Context (GEC)
+
+    2.  When a JavaScript file is loaded, the JavaScript engine automatically creates a Global Execution Context.
+        Memory space is allocated.
+
+            1. The execution phase is prepared.
+
+            2. Even though there is no code to execute, the engine still creates this context.
+
+            3. Global Scope is Created
+
+    3.  If you open Developer Tools → Sources, select the JavaScript file, and place a debugger statement (or pause execution), you will see a Global scope created under the Scope panel—even for an empty file.
+
+    4.  Creation of the window Object and this Keyword
+        Along with the Global Execution Context, the JavaScript engine automatically creates:
+
+        1. The window object : window is an object with lot of functions and methods. window object can be accessed anywhere in the program.
+
+        2. The this keyword
+
+    5.  Accessing window and this in the
+
+        Typing window in the console returns the global window object.
+        Typing this in the global scope also returns the window object.
+
+    6.  Relationship Between this and window
+        In the global execution context (in browsers), the this keyword refers to the window object.
+
+    7.  Whenever the JS code is executed, window object is the global object created by JS engine along with global execution context and also this is created.
+
+3.  Global Object in case of browser is known as window and this keyword points to the global object window.
+
+    1. In case of node the global object is known as something else but whenever the JS code is executed , there will global execution context and global object created.
+
+    2. The JavaScript is not only run on browsers, it is also run on servers, and lot of devices and places.
+
+    3. Wherever the JS is running , there must a JS engine.
+
+       1. For example : The JavaScript engine chrome is V8
+          The JavaScript engine Mozilla Firefox is SpiderMonkey.
+          The JavaScript engine for Apple Safari is JavaScriptCore (also called Nitro).
+
+    4. At the global level this is equal to window. so when you type this === window on console , it return true.

@@ -1,0 +1,65 @@
+1.  Conditional Statements allow us to perform different actions for different conditions.
+
+2.  Conditional statements include :
+
+    1. Use if to specify a code block to be executed, if a specified condition is true
+    2. Use else to specify a code block to be executed, if the same condition is false
+    3. Use else if to specify a new condition to test, if the first condition is false
+    4. Use switch to specify many alternative code blocks to be executed
+    5. Use (? :) (ternary) as a shorthand for if...else
+
+3.  The if Statement
+
+    1. Use if to specify a code block to be executed, if a specified condition is true.
+
+    2. Syntax
+       if (condition) {
+       // code to execute if the condition is true
+       }
+
+4.  The else Statement
+
+    1. Use else to specify a code block to be executed, if the same condition is false.
+
+    2. Syntax
+       if (condition) {
+       // code to execute if the condition is true
+       } else {
+       // code to execute if the condition is false
+       }
+
+5.  The else if Statement
+
+    1.  Use else if to specify a new condition to test, if the first condition is false.
+
+    2.  Syntax
+        if (condition1) {
+        // code to execute if condition1 is true
+        } else if (condition2) {
+        // code to execute if the condition1 is false and condition2 is true
+        } else {
+        // code to execute if the condition1 is false and condition2 is false
+        }
+
+6.  The switch Statement
+
+    1. Use switch to specify many alternative code blocks to be executed.
+
+    2. Syntax
+       switch(expression) {
+       case x:
+       // code block
+       break;
+       case y:
+       // code block
+       break;
+       default:
+       // code block
+       }
+
+7.  Ternary Operator (? :)
+
+    1.  Use (? :) (ternary) as a shorthand for if...else.
+
+    2.  Example
+        condition ? expression1 : expression2
