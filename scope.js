@@ -1,8 +1,8 @@
 function a() {
+  var b = 10;
   c();
-  function c() {
-    console.log(b);
-  }
+  function c() {}
 }
-var b = 10;
+
 a();
+console.log(b);
