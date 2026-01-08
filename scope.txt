@@ -1,1 +1,121 @@
-scope is directly related to lexical enviornment.
+1. Relationship Between Scope and Lexical Environment
+   Scope is directly related to the lexical environment.
+   Scope determines where a variable or function can be accessed in the code.
+   The rules of scope are defined lexically, meaning they depend on where the code is written, not where it is executed.
+
+2. What Is a Lexical Environment?
+   A Lexical Environment is a structure that holds:
+   Local Memory (Environment Record) – variables and functions declared in that scope
+   A reference to its parent lexical environment
+   In simple words:
+   Lexical Environment = Local Memory + Reference to Parent Lexical Environment
+   “Lexical” means hierarchical or positional, based on where functions and blocks are written in the source code.
+
+3. Example Code
+   function a() {
+   var b = 10;
+   c();
+   function c() {}
+   }
+
+a();
+console.log(b);
+
+4. How JavaScript Executes This Code (Behind the Scenes)
+   Step 1: Global Execution Context Creation
+   When any JavaScript program runs:
+   The JavaScript Engine creates the Global Execution Context (GEC)
+   The call stack initially contains only the GEC
+
+5. Execution Context Phases
+   Each execution context has two phases:
+
+1️⃣ Memory Creation Phase (Hoisting Phase)
+Memory is allocated for:
+Variables → initialized as undefined
+Functions → entire function definition is stored
+
+2️⃣ Code Execution Phase
+Code is executed line by line
+Variables get actual values
+Functions are invoked
+
+6. Global Execution Context – Memory Creation Phase
+   In the global scope, the engine scans the code:
+   There are no global variables
+   There is a function declaration a
+   So memory looks like:
+   a → function a() {
+   var b = 10;
+   c();
+   function c() {}
+   }
+
+7. Global Execution Context – Code Execution Phase
+   The engine starts executing code line by line
+   It encounters a();
+   👉 This causes a new execution context for function a to be created and pushed onto the call stack
+
+8. Function a Execution Context
+   Memory Creation Phase (for a)
+   Inside function a:
+   b → undefined
+   c → function c() {}
+   Code Execution Phase (for a)
+   var b = 10; // b is assigned value 10
+   c(); // function c is invoked
+
+9. Function c Execution Context
+   When c() is called:
+   A new execution context for c is created
+   It is pushed onto the call stack
+   Memory Creation Phase (for c)
+   No variables
+   No inner functions
+   Code Execution Phase (for c)
+   Nothing to execute
+
+➡️ c finishes execution and its execution context is popped off the call stack
+
+10. Completion of Function a
+    After c() completes, function a finishes execution
+    Execution context of a is removed from the call stack
+
+11. console.log(b) in Global Scope
+    console.log(b);
+    b is not in the global lexical environment
+    b was declared inside function a
+    Therefore, ReferenceError: b is not defined
+
+12. Lexical Environment in This Code
+    Global Lexical Environment
+    Local Memory: a
+    Parent Reference: null
+    Lexical Environment of Function a
+    Local Memory: b, c
+    Parent Reference: Global Lexical Environment
+    Lexical Environment of Function c
+    Local Memory: none
+    Parent Reference: Lexical Environment of a
+
+13. What Is the Scope Chain?
+    The scope chain is the chain of lexical environments used to resolve identifiers
+    When JavaScript looks for a variable:
+    It checks the current lexical environment
+    If not found, it moves to the parent
+    This continues until the global environment
+    If still not found → ReferenceError
+    Example:
+    If c tried to access b, JavaScript would:
+    Look in c’s local scope ❌
+    Look in a’s scope ✅
+
+14. Final Corrected Summary
+    Every execution context has a lexical environment
+    Lexical environment determines scope
+    Scope is resolved using the scope chain
+    Lexical scoping is based on where code is written
+    Global lexical environment’s parent is null
+    Inner functions can access outer variables, but not vice versa
+
+15. If `console.log(b)` were inside function `c` instead of the global scope, it would successfully log `10` because of **lexical scoping and the scope chain**. Function `c` is lexically defined inside function `a`, so when `c`’s execution context is created, its lexical environment contains its own local memory and a reference to the lexical environment of `a`. Since `b` is not found in `c`’s local scope, JavaScript looks up the scope chain to `a`’s lexical environment, finds `b` with the value `10`, and logs it. This works even though `b` is not declared inside `c`, because inner functions can access variables from their parent lexical environments, but variables declared inside a function remain inaccessible from the outside.
